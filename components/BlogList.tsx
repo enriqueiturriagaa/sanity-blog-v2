@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import urlFor from '../lib/urlFor';
 
 type Props = {
@@ -6,21 +5,22 @@ type Props = {
 }
 
 
+
 function BlogList({ posts }: Props) {
     return (
         <div>
 
             {posts.map((post) => (
-                <div key={post._id} className=" flex flex-col mb-10 group cursor-pointer">
-                    <div className=' group-hover:scale-105 transition-transform duration-200 ease-out '>
+                <div key={post._id} className=" flex flex-col mb-10 group cursor-pointer ">
+                    <div className=' group-hover:bg-[#EAFFF3] p-2 transition-transform duration-200 ease-out '>
 
                         <div>
                             <div className=''>
                                 <p className='font-gochi text-4xl'>
                                     {post.title}
                                 </p>
-                                <p className='font-roboto'>
-                                    {post.title}
+                                <p className='font-roboto text-sm'>
+                                    {post.summary}
                                 </p>
                                 {/* <p>
                                     {new Date(post._createdAt).toLocaleDateString
@@ -32,7 +32,7 @@ function BlogList({ posts }: Props) {
                                 </p> */}
                                 <div className='mt-2'>
                                     {post.categories.map((category) => (
-                                        <div key={post._id} className=' text-center bg-[#FFEBE0] px-3 py-1  text-sm font-gochi inline-block'>
+                                        <div key={post._id} className=' text-center bg-[#FFEBE0] px-3 py-1 mr-2 text-sm font-gochi inline-block'>
                                             <p className=''>#{category.title}</p>
                                         </div>
                                     ))}

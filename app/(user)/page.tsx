@@ -6,6 +6,7 @@ import PreviewBlogList from "../../components/PreviewBlogList";
 import BlogList from "../../components/BlogList";
 import RightPannel from "../../components/RightPannel";
 
+
 const query = groq`
     *[_type == "post"] {
         ...,
@@ -31,8 +32,8 @@ export default async function HomePage() {
     const posts = await client.fetch(query);
     return (
         <div className="bg-[#FBFAFB] text-[#343434] flex  px-12">
-            <div className="w-full md:w-2/3 md:mr-20 md:pr-20"><BlogList posts={posts} /></div>
-            <div className="font-gochi hidden md:inline">
+            <div className="w-full lg:w-2/3  lg:pr-20 min-w-[60%]"><BlogList posts={posts} /></div>
+            <div className="font-gochi lg:1/3 hidden lg:inline max-w-md">
                 <RightPannel />
             </div>
 

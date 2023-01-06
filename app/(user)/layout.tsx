@@ -8,7 +8,7 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <body className='bg-[#FBFAFB]'>
+      <body className='bg-[#FBFAFB] lg:px-20'>
         <Header />
         {/* Banner */}
         {children}</body>
