@@ -11,5 +11,7 @@ module.exports = {
       roboto: ['Roboto Mono', 'sans-serif']
     }
   },
-  plugins: []
+  plugins: [
+    require('@tailwindcss/line-clamp')
+  ]
 }
