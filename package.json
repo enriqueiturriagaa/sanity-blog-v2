@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.13",
-    "@next/font": "13.1.0",
+    "@next/font": "^13.1.0",
     "@portabletext/react": "^2.0.0",
     "@sanity/image-url": "^1.0.1",
     "@sanity/ui": "^1.0.5",
@@ -30,8 +30,8 @@
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
-    "@sanity/pkg-utils": "^2.0.3",
     "@sanity/eslint-config-studio": "^2.0.1",
+    "@sanity/pkg-utils": "^2.0.3",
     "@typescript-eslint/eslint-plugin": "^5.47.0",
     "autoprefixer": "^10.4.13",
     "eslint": "^8.30.0",

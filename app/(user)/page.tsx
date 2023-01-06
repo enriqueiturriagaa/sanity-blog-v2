@@ -4,6 +4,7 @@ import { client } from "../../lib/sanity.client";
 import PreviewSuspense from "../../components/PreviewSuspense";
 import PreviewBlogList from "../../components/PreviewBlogList";
 import BlogList from "../../components/BlogList";
+import RightPannel from "../../components/RightPannel";
 
 const query = groq`
     *[_type == "post"] {
@@ -15,7 +16,7 @@ const query = groq`
 
 export default async function HomePage() {
 
-    if(previewData()) {
+    if (previewData()) {
         return (<PreviewSuspense fallback={
             <div role="status">
                 <p className="text-center text-lg animate-pulse">
@@ -23,15 +24,18 @@ export default async function HomePage() {
                 </p>
             </div>
         }>
-            <PreviewBlogList query={query}/>
+            <PreviewBlogList query={query} />
         </PreviewSuspense>)
-    } 
+    }
 
     const posts = await client.fetch(query);
-    return(
-        <div className="bg-[#0F1119] text-[#CCA087]">
-            <BlogList posts={posts} />
-            
+    return (
+        <div className="bg-[#FBFAFB] text-[#343434] flex  px-12">
+            <div className="w-full md:w-2/3 md:mr-20 md:pr-20"><BlogList posts={posts} /></div>
+            <div className="font-gochi hidden md:inline">
+                <RightPannel />
+            </div>
+
         </div>
     );
-    }
+}
