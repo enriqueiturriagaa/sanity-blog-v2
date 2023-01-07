@@ -13,7 +13,9 @@ const query = groq`
         author->,
         categories[]->
     } | order(_createdAt desc)
-`
+`;
+
+export const revalidate = 60;
 
 export default async function HomePage() {
 
