@@ -6,7 +6,7 @@ function Header() {
 
 
   return (
-    <header className="flex items-center justify-between space-x-2 font-bold px-10 py-5 mb-10 text-white">
+    <header className="flex items-center justify-between space-x-2 font-bold px-10 py-5 mb-10 ">
       <div className="flex items-center space-x-2">
 
         <Link href="/">
@@ -16,11 +16,11 @@ function Header() {
       </div>
       <div className="flex font-gochi">
         <Link
-          href=""
+          href="/about"
           className="ml-5 px-4 py-3  md:text-base bg-[#FFEBE0] text-[#343434]  flex items-center  "
         ><p className="text-xs md:text-xl">About</p></Link>
         <Link
-          href=""
+          href="/"
           className="ml-5 px-4 py-3  md:text-base bg-[#E0F2FF] text-[#343434]  flex items-center  "
         ><p className="text-xs md:text-xl">Blog</p></Link>
         <Link
