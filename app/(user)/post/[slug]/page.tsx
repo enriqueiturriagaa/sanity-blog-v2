@@ -4,6 +4,7 @@ import { client } from "../../../../lib/sanity.client";
 import author from "../../../../schemas/author";
 import { PortableText } from "@portabletext/react";
 import { RichTextComponents } from "../../../../components/RichTextComponents";
+import CategoriesPage from "../../../../components/CatPage";
 
 
 type Props = {
@@ -11,6 +12,8 @@ type Props = {
         slug: string;
     }
 }
+
+
 
 export const revalidate = 60;
 
@@ -35,8 +38,10 @@ async function Post({ params: { slug } }: Props) {
             ...,
             author->,
             categories[]->
+       
         }
     `
+
 
     const post: Post = await client.fetch(query, { slug });
 

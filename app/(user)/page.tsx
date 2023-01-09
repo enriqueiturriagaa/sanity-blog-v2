@@ -12,8 +12,12 @@ const query = groq`
         ...,
         author->,
         categories[]->
+        
     } | order(_createdAt desc)
 `;
+
+
+
 
 export const revalidate = 60;
 
@@ -32,11 +36,15 @@ export default async function HomePage() {
     }
 
     const posts = await client.fetch(query);
+
+
     return (
         <div className="bg-[#FBFAFB] text-[#343434] flex  px-12">
             <div className="w-full lg:w-2/3  lg:pr-20 min-w-[60%]"><BlogList posts={posts} /></div>
             <div className="font-gochi lg:1/3 hidden lg:inline max-w-md">
                 <RightPannel />
+
+
             </div>
 
         </div>
