@@ -6,44 +6,58 @@ import { PortableText } from "@portabletext/react";
 import { RichTextComponents } from "../../../../components/RichTextComponents";
 import ClientSideRoute from "../../../../components/ClientSideRoute";
 
-
-
 type Props = {
     params: {
         slug: string;
-    }
+    },
+    posts: Post[],
 }
-
-
 
 export const revalidate = 60;
 
 export async function generateStaticParams() {
     const query = groq`
-        *[_type == "post"] {
-            slug
+        *[_type == "category"] {
+            slug        
         }
     `;
-    const slugs: Post[] = await client.fetch(query);
+    const slugs: Category[] = await client.fetch(query);
     const slugRoutes = slugs.map((slug) => slug.slug.current);
+    console.log(slugs);
+    console.log(slugRoutes);
     return slugRoutes.map(slug => ({
         slug,
     }))
-
-
 }
 
 
-async function Post({ params: { slug } }: Props) {
+async function Cats({ params: { slug }, posts }: Props) {
     const query = groq`
-        *[_type == "post" && slug.current == $slug][0] 
-        {
-            ...,
-            author->,
-            categories[]->
-       
-        }
+   *[_type == "category" && slug.current == $slug] [0] {
+    _id,
+    _type,
+    title,
+    slug,
+    description,
+    "posts": *[_type == "post" && references(^._id)]{
+        title,
+        slug
+}}
+    `;
+
+    const queryRel = groq`
+        *[_type == "post"]{
+            _type,
+            title,
+            slug,
+            "category": *[_type == "category" && references(^._id)]{
+                title,
+                slug
+        }}
     `
+
+
+
     const query2 = groq`
   *[_type == "category"]{
     _id,
@@ -58,8 +72,10 @@ async function Post({ params: { slug } }: Props) {
 }`
 
 
-    const post: Post = await client.fetch(query, { slug });
+    // const post: Post = await client.fetch(query, { slug });
+    const category: Category = await client.fetch(query, { slug });
     const categories = await client.fetch(query2);
+    const related = await client.fetch(queryRel);
 
 
     return (
@@ -67,20 +83,25 @@ async function Post({ params: { slug } }: Props) {
             <article className="w-full lg:w-2/3  lg:pr-20 min-w-[60%]">
                 <section>
                     <div className="mb-5">
-                        <h1 className="font-gochi text-4xl">{post.title}</h1>
+                        <h1 className="font-gochi text-4xl">{category.title}</h1>
 
-                        <p className="inline font-roboto text-gray-400 text-xs">Written by {post.author.name} on </p>
-                        <p className="inline font-roboto text-gray-400 text-xs italics">
-                            {new Date(post._createdAt).toLocaleDateString
-                                ("en-US", {
-                                    day: "numeric",
-                                    month: "long",
-                                    year: "numeric"
-                                })}
-                        </p>
+                        <p className="mt-2 font-roboto">{category.description}</p>
+                        <p className="mt-8 text-lg font-gochi">Posts tagged with #{category.title}:</p>
+
+
                         <div className='mt-2'>
-                            {post.categories.map((category) => (
-                                <div key={post._id} className='inline-block'>
+                            {related.map((post) => (
+                                <ClientSideRoute key={post._id} route={`/post/${post.slug.current}`}>
+
+                                    <p className=' text-left bg-[#FFEBE0] px-3 py-1 mr-2 mb-2 text-sm font-gochi hover:bg-[#EAFFF3]'>
+                                        {post.title}
+                                    </p>
+
+                                </ClientSideRoute>
+                            ))}
+
+                            {/* {categories.posts.map((posts) => (
+                                <div className='inline-block'>
                                     <ClientSideRoute key={category._id} route={`/category/${category.slug.current}`}>
 
                                         <p className='inline-block text-center bg-[#FFEBE0] px-3 py-1 mr-2 mb-2 text-sm font-gochi'>
@@ -89,14 +110,11 @@ async function Post({ params: { slug } }: Props) {
 
                                     </ClientSideRoute>
                                 </div>
-                            ))}
+                            ))} */}
                         </div>
 
                     </div>
-                    <div className="mb-5">
-                        {/* RTE Here! */}
-                        <PortableText value={post.body} components={RichTextComponents} />
-                    </div>
+
 
                 </section>
             </article>
@@ -107,4 +125,4 @@ async function Post({ params: { slug } }: Props) {
     )
 }
 
-export default Post
+export default Cats
