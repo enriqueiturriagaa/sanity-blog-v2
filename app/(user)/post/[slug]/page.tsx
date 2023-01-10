@@ -4,7 +4,8 @@ import { client } from "../../../../lib/sanity.client";
 import author from "../../../../schemas/author";
 import { PortableText } from "@portabletext/react";
 import { RichTextComponents } from "../../../../components/RichTextComponents";
-import CategoriesPage from "../../../../components/CatPage";
+import ClientSideRoute from "../../../../components/ClientSideRoute";
+
 
 
 type Props = {
@@ -28,6 +29,8 @@ export async function generateStaticParams() {
     return slugRoutes.map(slug => ({
         slug,
     }))
+
+
 }
 
 
@@ -41,9 +44,22 @@ async function Post({ params: { slug } }: Props) {
        
         }
     `
+    const query2 = groq`
+  *[_type == "category"]{
+    _id,
+    _type,
+    title,
+    slug,
+    "posts": *[_type == "post" && references(^._id)]{
+        title,
+        slug
+}
+}`
 
 
     const post: Post = await client.fetch(query, { slug });
+    const categories = await client.fetch(query2);
+
 
     return (
         <div className="bg-[#FBFAFB] text-[#343434] flex  px-12">
@@ -63,8 +79,14 @@ async function Post({ params: { slug } }: Props) {
                         </p>
                         <div className='mt-2'>
                             {post.categories.map((category) => (
-                                <div key={post._id} className=' text-center bg-[#FFEBE0] px-3 py-1 mr-2 text-sm font-gochi inline-block'>
-                                    <p key={category._id} className=''>#{category.title}</p>
+                                <div key={post._id} className='inline-block'>
+                                    <ClientSideRoute key={category._id} route={`/category/${category.slug.current}`}>
+
+                                        <p className='inline-block text-center bg-[#FFEBE0] px-3 py-1 mr-2 mb-2 text-sm font-gochi'>
+                                            #{category.title}
+                                        </p>
+
+                                    </ClientSideRoute>
                                 </div>
                             ))}
                         </div>
@@ -78,7 +100,7 @@ async function Post({ params: { slug } }: Props) {
                 </section>
             </article>
             <div className="font-gochi lg:1/3 hidden lg:inline max-w-md">
-                <RightPannel />
+                <RightPannel categories={categories} />
             </div>
         </div>
     )

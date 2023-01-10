@@ -14,9 +14,21 @@ const query = groq`
         categories[]->
         
     } | order(_createdAt desc)
+    
 `;
 
 
+const query2 = groq`
+    *[_type == "category"]{
+  _id,
+  _type,
+  title,
+  slug,
+  "posts": *[_type == "post" && references(^._id)]{
+    title,
+    slug
+  }
+}`
 
 
 export const revalidate = 60;
@@ -36,13 +48,14 @@ export default async function HomePage() {
     }
 
     const posts = await client.fetch(query);
+    const categories = await client.fetch(query2);
 
 
     return (
         <div className="bg-[#FBFAFB] text-[#343434] flex  px-12">
             <div className="w-full lg:w-2/3  lg:pr-20 min-w-[60%]"><BlogList posts={posts} /></div>
             <div className="font-gochi lg:1/3 hidden lg:inline max-w-md">
-                <RightPannel />
+                <RightPannel categories={categories} />
 
 
             </div>

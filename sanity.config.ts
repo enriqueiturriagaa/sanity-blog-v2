@@ -19,7 +19,11 @@ export default defineConfig({
   dataset,
 
   plugins: [deskTool({
-    defaultDocumentNode: getDefaultDocumentNode
+    defaultDocumentNode: getDefaultDocumentNode,
+    structure: (S) =>
+      S.list()
+        .title('Base')
+        .items([...S.documentTypeListItems().reverse()]),
   }), visionTool()],
 
   schema: {
