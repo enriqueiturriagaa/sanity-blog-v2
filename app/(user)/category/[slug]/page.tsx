@@ -24,8 +24,7 @@ export async function generateStaticParams() {
     `;
     const slugs: Category[] = await client.fetch(query);
     const slugRoutes = slugs.map((slug) => slug.slug.current);
-    console.log(slugs);
-    console.log(slugRoutes);
+
     return slugRoutes.map(slug => ({
         slug,
     }))
@@ -87,7 +86,8 @@ async function Cats({ params: { slug }, posts }: Props) {
                     <div className="mb-5">
                         <h1 className="font-gochi text-4xl">{category.title}</h1>
 
-                        <p className="mt-2 font-roboto">{category.description}</p>
+                        <PortableText value={category.description} components={RichTextComponents} />
+                        {/* <p className="mt-2 font-roboto">{category.description}</p> */}
                         <p className="mt-12 text-4xl font-gochi">Posts tagged with <span className="bg-[#FFEBE0]">#{category.title}</span>: </p>
 
 

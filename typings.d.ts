@@ -57,7 +57,7 @@ interface Span {
 
 interface Category extends Base {
     slug: Slug;
-    description: string;
+    description: Block[];
     title: string;
 }
 

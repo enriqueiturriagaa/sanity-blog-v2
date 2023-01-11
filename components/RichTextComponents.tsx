@@ -20,10 +20,19 @@ export const RichTextComponents = {
     },
     list: {
         bullet: ({ children }: any) => (
-            <ul className='ml-10 py-5 list-disc space-y-5 font-roboto'>{children}</ul>
+            <ul className='ml-10  py-5 list-disc space-y-5 font-roboto'>{children}</ul>
         ),
         number: ({ children }: any) => (
-            <ol className='ml-10 mt-lg list-decimal font-roboto'>{children}</ol>
+            <ol className='ml-10   mt-lg list-decimal font-roboto'>{children}</ol>
+        ),
+
+    },
+    listItem: {
+        number: ({ children }: any) => (
+            <li className='py-1 mb-2 font-gochi'>{children}</li>
+        ),
+        bullet: ({ children }: any) => (
+            <li className='py-1 mb-2 font-gochi'>{children}</li>
         ),
     },
     block: {
