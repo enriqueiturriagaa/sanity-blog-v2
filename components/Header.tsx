@@ -10,7 +10,7 @@ function Header() {
       <div className="flex items-center space-x-2">
 
         <Link href="/">
-          <Image className="rounded-full" src="/assets/logo.png" alt="logo" width={300} height={150} />
+          <Image className="" src="/assets/logo.png" alt="logo" width={300} height={150} />
         </Link>
 
       </div>
