@@ -5,6 +5,7 @@ import author from "../../../../schemas/author";
 import { PortableText } from "@portabletext/react";
 import { RichTextComponents } from "../../../../components/RichTextComponents";
 import ClientSideRoute from "../../../../components/ClientSideRoute";
+import ArrowUpRightIcon from "@heroicons/react/24/solid/ArrowUpRightIcon";
 
 type Props = {
     params: {
@@ -41,7 +42,8 @@ async function Cats({ params: { slug }, posts }: Props) {
     description,
     "posts": *[_type == "post" && references(^._id)]{
         title,
-        slug
+        slug,
+        summary
 }}
     `;
 
@@ -86,11 +88,13 @@ async function Cats({ params: { slug }, posts }: Props) {
                         <h1 className="font-gochi text-4xl">{category.title}</h1>
 
                         <p className="mt-2 font-roboto">{category.description}</p>
-                        <p className="mt-8 text-lg font-gochi">Posts tagged with #{category.title}:</p>
+                        <p className="mt-12 text-4xl font-gochi">Posts tagged with <span className="bg-[#FFEBE0]">#{category.title}</span>: </p>
+
+
 
 
                         <div className='mt-2'>
-                            {related.map((post) => (
+                            {/* {related.map((post) => (
                                 <ClientSideRoute key={post._id} route={`/post/${post.slug.current}`}>
 
                                     <p className=' text-left bg-[#FFEBE0] px-3 py-1 mr-2 mb-2 text-sm font-gochi hover:bg-[#EAFFF3]'>
@@ -98,19 +102,25 @@ async function Cats({ params: { slug }, posts }: Props) {
                                     </p>
 
                                 </ClientSideRoute>
-                            ))}
+                            ))} */}
 
-                            {/* {categories.posts.map((posts) => (
-                                <div className='inline-block'>
-                                    <ClientSideRoute key={category._id} route={`/category/${category.slug.current}`}>
+                            {category["posts"].map((posts) => (
+                                <div className='mb-2  hover:bg-[#FFEBE0] p-2 transition-transform duration-200 ease-out cursor-pointer'>
+                                    <ClientSideRoute key={posts._id} route={`/post/${posts.slug.current}`}>
 
-                                        <p className='inline-block text-center bg-[#FFEBE0] px-3 py-1 mr-2 mb-2 text-sm font-gochi'>
-                                            #{category.title}
+                                        <p className=' text-xl font-gochi'>
+                                            {posts.title}
+                                        </p>
+                                        <p className='font-roboto text-sm line-clamp-2'>
+                                            {posts.summary}
+                                        </p>
+                                        <p className='font-gochi'>Read Post
+                                            <ArrowUpRightIcon className='inline-block ml-1 h-4 w-4' />
                                         </p>
 
                                     </ClientSideRoute>
                                 </div>
-                            ))} */}
+                            ))}
                         </div>
 
                     </div>
