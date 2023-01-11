@@ -4,13 +4,31 @@ import ClientSideRoute from './ClientSideRoute';
 
 type Props = {
     posts: Post[];
+    categories: Category[];
 }
 
 
 
-function BlogList({ posts }: Props) {
+function BlogList({ posts, categories }: Props) {
     return (
         <div>
+
+            <div className='mb-12 inline lg:hidden'>
+                <h2 className='text-xl mb-2 font-gochi'>Themes:</h2>
+                <div>
+
+                    {categories.map((category) => (
+                        <ClientSideRoute key={category._id} route={`/category/${category.slug.current}`}>
+
+                            <p className='inline-block text-center bg-[#FFEBE0] hover:bg-[#FFFCE0] hover:underline px-3 py-1 mr-2 mb-2 text-sm font-gochi'>
+                                #{category.title}
+                            </p>
+
+                        </ClientSideRoute>
+                    ))}
+                </div>
+                <p className='mt-10 px-2 py-1 mb-2 font-gochi text-2xl bg-[#E0F2FF] inline-block'>Latest Posts:</p>
+            </div>
 
             {posts.map((post) => (
                 <ClientSideRoute key={post._id} route={`/post/${post.slug.current}`}>
