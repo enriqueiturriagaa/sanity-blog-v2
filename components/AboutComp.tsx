@@ -4,15 +4,20 @@ function AboutComp() {
   return (
     <div className='font-roboto text-sm'>
       <h1 className="text-3xl font-bold font-gochi">About?</h1>
-      <p>
-        Mauris tempor, odio id ullamcorper accumsan, dui est accumsan nisl, nec sollicitudin quam libero vel mauris. Nam vel quam et nulla scelerisque eleifend. Nam commodo, libero sed iaculis lobortis, urna eros feugiat lacus, dictum dapibus dui quam eu leo. Vivamus ultrices ullamcorper nulla, eu finibus erat porttitor eu. Curabitur tempus tempor lectus, vestibulum porttitor orci congue a. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis aliquet dui et diam faucibus, sit amet suscipit magna fringilla. Pellentesque mollis lacus eu egestas volutpat. Fusce ac aliquam lorem. Mauris quis auctor ante. Cras a felis dapibus, tincidunt ipsum ultricies, cursus felis. Nulla eleifend nulla turpis, eu commodo est luctus vitae. Maecenas imperdiet sollicitudin convallis. Maecenas at consectetur est, at dictum risus.
-      </p>
       <h2 className='my-5 text-xl font-bold font-gochi'>Nullius in verba = Take no one’s word for it</h2>
-      <p>Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis aliquet dui et diam faucibus, sit amet suscipit magna fringilla. Pellentesque mollis lacus eu egestas volutpat. Fusce ac aliquam lorem. Mauris quis auctor ante. Cras a felis dapibus, tincidunt ipsum ultricies, cursus felis. Nulla eleifend nulla turpis, eu commodo est luctus vitae. Maecenas imperdiet sollicitudin convallis. Maecenas at consectetur est, at dictum risus.</p>
+      <p className='mb-4'>
+        "Nullius in verba" is a Latin phrase meaning "On the word of no one." It represents the idea that knowledge should be based on evidence, rather than authority or tradition. This motto is a reminder that understanding should always be open to questioning and that new discoveries can fundamentally change what we know about the world.
+      </p>
+      <p className='mb-4'>If you want to be happy and successful, you are looking for a non-common outcome, and you're never going to get any non-common outcome by doing and reading the things common people do and read.</p>
+      <p className='my-5 text-xl font-bold font-gochi'>It takes a level of contrarianism to do or become uncommon</p>
+      <p className='mb-4'>Let the evidence speak for itself. Keep an open mind, question everything and be ready for new discoveries that will change our understanding of the world.</p>
+      <h3 className='my-5 text-xl font-bold font-gochi'>Don't believe anyone... not even <span className='line-through '>yourself</span> me</h3>
       <Image src="/assets/about.png" alt="About" width={680} height={444} className="my-10"
       />
-      <h3 className='my-5 text-xl font-bold font-gochi'>Don't believe anyone... not even <span className='line-through decoration-rose-700'>yourself</span> me</h3>
-      <p>Ready to bring your web3 project to life with amazing UX design? Contact us to learn more about how we can help you create user-friendly decentralized applications that drive adoption and success. Our team of experienced UX designers has the skills and knowledge to turn your vision into a reality. Don't wait, get in touch with us today and let's make your web3 project a success!</p>
+      <h2 className='mt-5 mb-2 text-xl font-bold font-gochi'>Who am I?</h2>
+      <p className='mb-4'>I'm Enrique Iturriaga. I'm probably the opposite of what i think I am... sit with that and create your own conclussions. </p>
+      <p className='mb-4'>This is my online space for... pretty much anything. There's no agenda behind this site other than writing/Uploading whatever I want.</p>
+      <p className='mb-4'>That's why I named this site "Nullius in verba", because you shouldn't take my word (or anyone's word) for anything. Life is <span className='line-through'>fucking</span> amazing if you are willing to experience it yourself. So find your own way.</p>
 
     </div>
   )
