@@ -16,16 +16,16 @@ function Header() {
       </div>
       <div className="flex font-gochi">
         <Link
-          href="/about"
-          className="ml-5 px-4 py-3  md:text-base bg-[#FFEBE0] text-[#343434]  flex items-center  "
-        ><p className="text-xs md:text-xl">About</p></Link>
-        <Link
           href="/"
-          className="ml-5 px-4 py-3  md:text-base bg-[#E0F2FF] text-[#343434]  flex items-center  "
+          className="ml-5 px-4 py-3  md:text-base bg-[#E0F2FF] hover:bg-[#FFFCE0] text-[#343434]  flex items-center  "
         ><p className="text-xs md:text-xl">Blog</p></Link>
         <Link
+          href="/about"
+          className="ml-5 px-4 py-3  md:text-base bg-[#FFEBE0] hover:bg-[#FFFCE0] text-[#343434]  flex items-center  "
+        ><p className="text-xs md:text-xl">About</p></Link>
+        <Link
           href=""
-          className="ml-5 px-4 py-3  md:text-base bg-[#EAFFF3] text-[#343434]  flex items-center  "
+          className="ml-5 px-4 py-3  md:text-base bg-[#EAFFF3] hover:bg-[#FFFCE0] text-[#343434]  flex items-center  "
         ><p className="text-xs md:text-xl">Contact</p></Link>
       </div>
     </header>
