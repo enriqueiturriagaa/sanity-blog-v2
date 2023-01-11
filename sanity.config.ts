@@ -7,8 +7,12 @@ import StudioNavbar from './components/StudioNavbar';
 import Logo from './components/Logo';
 import { getDefaultDocumentNode } from './structure';
 
+
+
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!;
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!;
+
+
 
 export default defineConfig({
   basePath: '/studio',
@@ -36,5 +40,7 @@ export default defineConfig({
 
     }
   },
-  theme: myTheme,
+  // theme: myTheme,
+
+
 })
