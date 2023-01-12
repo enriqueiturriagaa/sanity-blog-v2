@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      gochi: ['Gochi Hand', 'cursive'],
+      gochi: ['Gochi Hand', 'sans-serif'],
       roboto: ['Roboto Mono', 'sans-serif']
     }
   },
