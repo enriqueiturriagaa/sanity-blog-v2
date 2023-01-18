@@ -15,9 +15,9 @@ function AboutComp() {
       <Image src="/assets/about.png" alt="About" width={680} height={444} className="my-10"
       />
       <h2 className='mt-5 mb-2 text-xl font-bold font-gochi'>Who am I?</h2>
-      <p className='mb-4'>I'm Enrique Iturriaga. I'm probably the opposite of what i think I am... sit with that and create your own conclussions. </p>
+      <p className='mb-4'>I'm <a className='underline font-gochi font-2xl' href='https://enrique.zone'>Enrique Iturriaga</a> and I'm probably the opposite of what I think I am... read the blog and make your own conclussions. </p>
       <p className='mb-4'>This is my online space for... pretty much anything. There's no agenda behind this site other than writing/Uploading whatever I want.</p>
-      <p className='mb-4'>That's why I named this site "Nullius in verba", because you shouldn't take my word (or anyone's word) for anything. Life is <span className='line-through'>fucking</span> amazing if you are willing to experience it yourself. So find your own way.</p>
+      <p className='mb-4'>That's why I named this site "Nullius in verba", because you shouldn't take my word (or anyone's word) for anything. Life is <span className='line-through'>fucking</span> amazing if you are willing to experience it yourself. Find your own way.</p>
 
     </div>
   )

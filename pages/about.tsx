@@ -44,7 +44,6 @@ export default function about() {
                                     <p className='inline-block text-left bg-[#FFEBE0] px-3 py-1 mr-2 text-sm font-gochi mb-2 '>I design</p>
                                     <p className='inline-block text-left bg-[#FFEBE0] px-3 py-1 mr-2 text-sm font-gochi mb-2 '>I Grapple</p>
                                     <p className='inline-block text-left bg-[#FFEBE0] px-3 py-1 mr-2 text-sm font-gochi mb-2 '>I Surf</p>
-                                    <p className='inline-block text-left bg-[#FFEBE0] px-3 py-1 mr-2 text-sm font-gochi mb-2 '>I cook great picanha</p>
                                     <p className='inline-block text-left bg-[#FFEBE0] px-3 py-1 mr-2 text-sm font-gochi mb-2 '>I build products</p>
 
 
