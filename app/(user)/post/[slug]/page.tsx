@@ -5,6 +5,7 @@ import author from "../../../../schemas/author";
 import { PortableText } from "@portabletext/react";
 import { RichTextComponents } from "../../../../components/RichTextComponents";
 import ClientSideRoute from "../../../../components/ClientSideRoute";
+import SubscribeForm from "../../../../components/SubscribeForm";
 
 
 
@@ -93,11 +94,11 @@ async function Post({ params: { slug } }: Props) {
                         </div>
 
                     </div>
-                    <div className="mb-5">
+                    <div className="mb-10">
                         {/* RTE Here! */}
                         <PortableText value={post.body} components={RichTextComponents} />
                     </div>
-
+                    <SubscribeForm />
                 </section>
             </article>
             <div className="font-gochi lg:1/3 hidden lg:inline max-w-md">

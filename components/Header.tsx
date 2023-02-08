@@ -29,13 +29,17 @@ function Header() {
           className="ml-5 px-4 py-3  md:text-base bg-[#E0F2FF] hover:bg-[#FFFCE0] text-[#343434]  flex items-center  "
         ><p className="text-s md:text-xl">Blog</p></Link>
         <Link
+          href="/newsletter"
+          className="ml-5 px-4 py-3  md:text-base bg-[#EAFFF3] hover:bg-[#FFFCE0] text-[#343434]  flex items-center  "
+        ><p className="text-s md:text-xl">Newsletter</p></Link>
+        <Link
           href="/about"
           className="ml-5 px-4 py-3  md:text-base bg-[#FFEBE0] hover:bg-[#FFFCE0] text-[#343434]  flex items-center  "
         ><p className="text-s md:text-xl">About</p></Link>
-        <Link
+        {/* <Link
           href=""
           className="ml-5 px-4 py-3  md:text-base bg-[#EAFFF3] hover:bg-[#FFFCE0] text-[#343434]  flex items-center  "
-        ><p className="text-s md:text-xl">Contact</p></Link>
+        ><p className="text-s md:text-xl">Contact</p></Link> */}
       </div>
     </header>
   )

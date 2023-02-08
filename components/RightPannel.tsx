@@ -2,6 +2,7 @@ import React from 'react'
 import ClientSideRoute from './ClientSideRoute'
 import Popular from './Popular'
 import Services from './Services'
+import SubscribeForm from './SubscribeForm'
 
 type Props = {
     categories: Category[];
@@ -30,6 +31,7 @@ function base({ categories }: Props) {
             {/* ENDS */}
             <Popular />
             <Services />
+            {/* <SubscribeForm /> */}
 
         </div>
     )

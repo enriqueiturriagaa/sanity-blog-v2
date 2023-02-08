@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import SubscribeForm from './SubscribeForm'
 
 function AboutComp() {
   return (
@@ -18,7 +19,10 @@ function AboutComp() {
       <p className='mb-4'>I'm <a className='underline font-gochi font-2xl' href='https://enrique.zone'>Enrique Iturriaga</a> and I'm probably the opposite of what I think I am... read the blog and make your own conclussions. </p>
       <p className='mb-4'>This is my online space for... pretty much anything. There's no agenda behind this site other than writing/Uploading whatever I want.</p>
       <p className='mb-4'>That's why I named this site "Nullius in verba", because you shouldn't take my word (or anyone's word) for anything. Life is <span className='line-through'>fucking</span> amazing if you are willing to experience it yourself. Find your own way.</p>
+      <div className='mt-10'>
 
+        <SubscribeForm />
+      </div>
     </div>
   )
 }
